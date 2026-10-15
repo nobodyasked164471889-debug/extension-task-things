@@ -1,1 +1,1 @@
-A repo I have made to store all the large python programs I make mostly for extension tasks to avoid pasting 200 lines programs into onenote
+This is just a repo of extension tasks
