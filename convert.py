@@ -88,7 +88,6 @@ def main():
 
     value = input("Enter a number: ").strip().upper()
 
-    # Detect an explicitly specified number system.
     if value.startswith("0B"):
         system = "binary"
         value = value[2:]
@@ -98,7 +97,6 @@ def main():
         value = value[2:]
 
     else:
-        # A leading minus sign indicates a denary number.
         if value.startswith("-"):
             system = "denary"
 
@@ -139,7 +137,6 @@ def main():
             print("Invalid number.")
             return
 
-    # Check that the input is valid for the chosen system.
     if system == "binary":
         if not is_binary(value) or len(value) > 8:
             print("Binary must contain 1 to 8 bits.")
@@ -147,7 +144,6 @@ def main():
 
         number = binary_to_denary(value)
 
-        # Ask how a binary number with a leading 1 is interpreted.
         if value[0] == "1":
             print("\nHow should the binary number be interpreted?")
             print("1. Unsigned")
@@ -182,7 +178,6 @@ def main():
             print("Invalid denary number.")
             return
 
-    # Check whether the number can be represented in 8 bits.
     if number < -128 or number > 255:
         print("Number is outside the 8-bit range.")
         return
@@ -191,7 +186,6 @@ def main():
     print("-----------")
     print("Denary:", number)
 
-    # Display the ordinary binary and hexadecimal values.
     if number >= 0:
         print("Unsigned binary:",
               denary_to_binary(number).zfill(8))
@@ -203,7 +197,6 @@ def main():
         print("Hexadecimal magnitude: -",
               denary_to_hex(abs(number)), sep="")
 
-    # Display signed representations when possible.
     if -128 <= number <= 127:
         print("Two's complement:",
               to_twos_complement(number))
